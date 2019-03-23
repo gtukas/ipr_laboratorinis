@@ -1,0 +1,7 @@
+C:\Users\gtukas\Source\Repos\ipr_laboratorinis\LaboratonisDarbas\bin\Debug\LaboratonisDarbas.exe.config
+C:\Users\gtukas\Source\Repos\ipr_laboratorinis\LaboratonisDarbas\bin\Debug\LaboratonisDarbas.exe
+C:\Users\gtukas\Source\Repos\ipr_laboratorinis\LaboratonisDarbas\bin\Debug\LaboratonisDarbas.pdb
+C:\Users\gtukas\Source\Repos\ipr_laboratorinis\LaboratonisDarbas\obj\Debug\LaboratonisDarbas.csprojAssemblyReference.cache
+C:\Users\gtukas\Source\Repos\ipr_laboratorinis\LaboratonisDarbas\obj\Debug\LaboratonisDarbas.csproj.CoreCompileInputs.cache
+C:\Users\gtukas\Source\Repos\ipr_laboratorinis\LaboratonisDarbas\obj\Debug\LaboratonisDarbas.exe
+C:\Users\gtukas\Source\Repos\ipr_laboratorinis\LaboratonisDarbas\obj\Debug\LaboratonisDarbas.pdb
