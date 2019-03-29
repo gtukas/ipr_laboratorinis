@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace LaboratonisDarbas
 {
@@ -19,8 +20,9 @@ namespace LaboratonisDarbas
             while (testi)
             {
                 Console.WriteLine("Ivesti nauja studenta? Spauskite 1.");
-                Console.WriteLine("Isvesti rezultatus? Spauskite 2.");
-                Console.WriteLine("Baigti darba? Spauskite CTRL+C.");
+                Console.WriteLine("Ivesti naujus studentu is failo? Spauskite 2.");
+                Console.WriteLine("Isvesti rezultatus? Spauskite 3.");
+                Console.WriteLine("Baigti darba? Spauskite e.");
                 string ans = Console.ReadLine();
                 switch (ans)
                 {
@@ -31,7 +33,17 @@ namespace LaboratonisDarbas
                         }
                     case "2":
                         {
+                            NaujasStudentasIsFailo();
+                            break;
+                        }
+                    case "3":
+                        {
                             IsvestiRezultatus();
+                            break;
+                        }
+                    case "E":
+                        {
+                            testi = false;
                             break;
                         }
                     default:
@@ -70,27 +82,37 @@ namespace LaboratonisDarbas
             grupe.Last().ivestiEgzaminoBala(balas);
         }
 
-        static void IsvestiRezultatus()
+        static void NaujasStudentasIsFailo()
         {
-            Console.WriteLine("Skaiciuoti pagal vidurki? spauskite 1");
-            Console.WriteLine("Skaiciuoti pagal mediana? spauskite 2");
-            int kuris = int.Parse(Console.ReadLine());
-            if (kuris == 1)
+            Console.WriteLine("Iveskite failo vieta (path):");
+            var path = Console.ReadLine();
+            if (File.Exists(path))
             {
-                Console.WriteLine("{0,-20} {1,-20} {2,-20}", "Vardas", "Pavarde", "Galutinis (vid.)");
-                Console.WriteLine("----------------------------------------------------------");
-                foreach (var stud in grupe)
+                var tekstas = File.ReadAllLines(path);
+                var title = tekstas[0].Split(' ');
+                int n = 1;
+                while (n < tekstas.Length)
                 {
-                    Console.WriteLine("{0,-20} {1,-20} {2,-20:f2}", stud.vardas, stud.pavarde, stud.galutinisVertinimasVidurkis());
+                    var eilute = tekstas[n].Split(' ');
+                    grupe.Add(new Studentas(eilute[0], eilute[1]));
+                    for (int i = 2; i < title.Length-1; i++)
+                    {
+                        grupe.Last().ivestiNamuDarboBala(int.Parse(eilute[i]));
+                    }
+                    grupe.Last().ivestiEgzaminoBala(int.Parse(eilute[title.Length-1]));
+                    n++;
                 }
             }
-            else {
-                Console.WriteLine("{0,-20} {1,-20} {2,-20}", "Vardas", "Pavarde", "Galutinis (med.)");
-                Console.WriteLine("----------------------------------------------------------");
-                foreach (var stud in grupe)
-                {
-                    Console.WriteLine("{0,-20} {1,-20} {2,-20:f2}", stud.vardas, stud.pavarde, stud.galutinisVertinimasMediana());
-                }
+        }
+
+        static void IsvestiRezultatus()
+        {
+            grupe.Sort();
+            Console.WriteLine("{0,-20} {1,-20} {2,-20} {3,-20}", "Vardas", "Pavarde", "Galutinis (vid.)", "Galutinis (med.)");
+            Console.WriteLine("-----------------------------------------------------------------");
+            foreach (var stud in grupe)
+            {
+                Console.WriteLine("{0,-20} {1,-20} {2,-20:f2} {3,-20:f2}", stud.vardas, stud.pavarde, stud.galutinisVertinimasVidurkis(), stud.galutinisVertinimasMediana());
             }
         }
     }
