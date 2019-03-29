@@ -41,7 +41,7 @@ namespace LaboratonisDarbas
                             IsvestiRezultatus();
                             break;
                         }
-                    case "E":
+                    case "e":
                         {
                             testi = false;
                             break;
@@ -107,7 +107,7 @@ namespace LaboratonisDarbas
 
         static void IsvestiRezultatus()
         {
-            grupe.Sort();
+            grupe.Sort(new CompareStudentas());
             Console.WriteLine("{0,-20} {1,-20} {2,-20} {3,-20}", "Vardas", "Pavarde", "Galutinis (vid.)", "Galutinis (med.)");
             Console.WriteLine("-----------------------------------------------------------------");
             foreach (var stud in grupe)

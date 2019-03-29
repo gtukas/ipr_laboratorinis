@@ -62,4 +62,12 @@ namespace LaboratonisDarbas
         }
 
     }
+
+    class CompareStudentas : IComparer<Studentas>
+    {
+        public int Compare(Studentas x, Studentas y)
+        {
+            return x.vardas.CompareTo(y.vardas);
+        }
+    }
 }
