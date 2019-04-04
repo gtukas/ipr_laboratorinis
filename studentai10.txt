@@ -1,0 +1,22 @@
+Vardas               Pavarde             ND1                 ND2                 ND3                 ND4                 ND5                 ND6                 Egzaminas            
+
+Vardas1              Pavarde1            4                   9                   9                   10                  8                   1                   8                    
+
+Vardas2              Pavarde2            5                   10                  7                   10                  3                   7                   7                    
+
+Vardas3              Pavarde3            9                   6                   9                   7                   6                   7                   9                    
+
+Vardas4              Pavarde4            10                  10                  1                   9                   9                   6                   3                    
+
+Vardas5              Pavarde5            8                   10                  7                   4                   9                   6                   9                    
+
+Vardas6              Pavarde6            4                   8                   4                   10                  7                   1                   5                    
+
+Vardas7              Pavarde7            7                   4                   10                  3                   8                   3                   8                    
+
+Vardas8              Pavarde8            8                   9                   4                   2                   3                   5                   4                    
+
+Vardas9              Pavarde9            10                  9                   1                   10                  6                   5                   7                    
+
+Vardas10             Pavarde10           10                  10                  7                   4                   1                   8                   6                    
+
