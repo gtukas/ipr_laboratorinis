@@ -19,6 +19,7 @@ namespace LaboratonisDarbas
                 Console.WriteLine("Ivesti nauja studenta? Spauskite 1.");
                 Console.WriteLine("Ivesti naujus studentu is failo? Spauskite 2.");
                 Console.WriteLine("Isvesti rezultatus? Spauskite 3.");
+                Console.WriteLine("Generate random list? Spauskite 4.");
                 Console.WriteLine("Baigti darba? Spauskite e.");
                 string ans = Console.ReadLine();
                 switch (ans)
@@ -37,6 +38,17 @@ namespace LaboratonisDarbas
                         {
                             Isvestis.IsvestiRezultatus(grupe);
                             break; 
+                        }
+                    case "4":
+                        {
+                            Console.WriteLine("Iveskite failo vieta (path):");
+                            var path = Console.ReadLine();
+                            Console.WriteLine("Namu darbu uzduociu skaicius:");
+                            int n = int.Parse(Console.ReadLine());
+                            Console.WriteLine("Studentu skaicius:");
+                            int st = int.Parse(Console.ReadLine());
+                            Ivestis.GenerateRandomStudentList(st,n,path);
+                            break;
                         }
                     case "e":
                         {

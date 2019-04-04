@@ -4,3 +4,4 @@ C:\Users\gtukas\source\repos\ipr_laboratorinis\LaboratonisDarbas\bin\Debug\Labor
 C:\Users\gtukas\source\repos\ipr_laboratorinis\LaboratonisDarbas\bin\Debug\LaboratonisDarbas.pdb
 C:\Users\gtukas\source\repos\ipr_laboratorinis\LaboratonisDarbas\obj\Debug\LaboratonisDarbas.exe
 C:\Users\gtukas\source\repos\ipr_laboratorinis\LaboratonisDarbas\obj\Debug\LaboratonisDarbas.pdb
+C:\Users\gtukas\source\repos\ipr_laboratorinis\LaboratonisDarbas\obj\Debug\LaboratonisDarbas.csprojAssemblyReference.cache

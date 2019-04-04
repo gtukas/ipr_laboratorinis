@@ -90,6 +90,34 @@ namespace LaboratonisDarbas
             }
             return grupe;
         }
-        
+        public static void GenerateRandomStudentList(int numberOfStudents, int ndSkaicius, string filePath)
+        {
+            Random random = new Random();
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+            }
+            List<string> allLines = new List<string>();
+            string header = string.Format("{0,-20} {1,-20}", "Vardas", "Pavarde");
+            for (int g = 1; g <= ndSkaicius; g++)
+            {
+                header += string.Format("{0,-20}", "ND"+g);
+            }
+            header += string.Format("{0,-20} \n", "Egzaminas");
+            allLines.Add(header);
+            for (int i = 1; i <= numberOfStudents; i++)
+            {
+                string vardas = "Vardas" + i;
+                string pavarde = "Pavarde" + i;
+                string line = string.Format("{0,-20} {1,-20}", vardas, pavarde);
+                for (int j = 0; j < ndSkaicius; j++)
+                {
+                    line += string.Format("{0,-20}", random.Next(1, 11));
+                }
+                line += string.Format("{0,-20} \n", random.Next(1, 11));
+                allLines.Add(line);
+            }
+            File.AppendAllLines(filePath, allLines);
+        }
     }
 }
