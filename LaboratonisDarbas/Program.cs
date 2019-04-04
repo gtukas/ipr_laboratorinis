@@ -14,8 +14,6 @@ namespace LaboratonisDarbas
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            Console.ReadKey();
             while (testi)
             {
                 Console.WriteLine("Ivesti nauja studenta? Spauskite 1.");
@@ -27,17 +25,17 @@ namespace LaboratonisDarbas
                 {
                     case "1":
                         {
-                            //NaujasStudentas();
+                            grupe = Ivestis.NaujasStudentas(grupe);
                             break;
                         }
                     case "2":
                         {
-                            //NaujasStudentasIsFailo();
+                            grupe = Ivestis.NaujasStudentasIsFailo(grupe);
                             break;
                         }
                     case "3":
                         {
-                            IsvestiRezultatus();
+                            Isvestis.IsvestiRezultatus(grupe);
                             break; 
                         }
                     case "e":
@@ -52,19 +50,6 @@ namespace LaboratonisDarbas
                         }
 
                 }
-            }
-        }
-
-        
-
-        static void IsvestiRezultatus()
-        {
-            grupe.Sort(new CompareStudentas());
-            Console.WriteLine("{0,-20} {1,-20} {2,-20} {3,-20}", "Vardas", "Pavarde", "Galutinis (vid.)", "Galutinis (med.)");
-            Console.WriteLine("-----------------------------------------------------------------");
-            foreach (var stud in grupe)
-            {
-                Console.WriteLine("{0,-20} {1,-20} {2,-20:f2} {3,-20:f2}", stud.vardas, stud.pavarde, stud.galutinisVertinimasVidurkis(), stud.galutinisVertinimasMediana());
             }
         }
     }

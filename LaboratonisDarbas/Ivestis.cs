@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
 
 namespace LaboratonisDarbas
 {
@@ -16,7 +19,15 @@ namespace LaboratonisDarbas
             Console.WriteLine("Studento pavarde:");
             pavarde = Console.ReadLine();
 
-            grupe.Add(new Studentas(vardas, pavarde));
+            try
+            {
+                grupe.Add(new Studentas(vardas, pavarde));
+            }
+            catch
+            {
+                Console.WriteLine("Negaliu pridedi naujo studento :(");
+                return grupe;
+            }
 
             Console.WriteLine("Namu darbu uzduociu skaicius:");
             n = int.Parse(Console.ReadLine());
@@ -24,15 +35,35 @@ namespace LaboratonisDarbas
             {
                 balas = random.Next(1, 11);
                 Console.WriteLine("{0} Namu darbo balas: {1}", i, balas);
-                grupe.Last().ivestiNamuDarboBala(balas);
+                try
+                {
+                    grupe.Last().ivestiNamuDarboBala(balas);
+                }
+                catch
+                {
+                    Console.WriteLine("Negaliu pridedi namu darbo balo :(");
+                    grupe.Remove(grupe.Last());
+                    return grupe;
+                }
             }
 
             balas = random.Next(1, 11);
             Console.WriteLine("Egzamino balas: {0}", balas);
-            grupe.Last().ivestiEgzaminoBala(balas);
+            try
+            {
+                grupe.Last().ivestiEgzaminoBala(balas);
+            }
+            catch
+            {
+                Console.WriteLine("Negaliu pridedi egzamino balo :(");
+                grupe.Remove(grupe.Last());
+                return grupe;
+            }
+
+            return grupe;
         }
 
-        public static void NaujasStudentasIsFailo()
+        public static List<Studentas> NaujasStudentasIsFailo(List<Studentas> grupe)
         {
             Console.WriteLine("Iveskite failo vieta (path):");
             var path = Console.ReadLine();
@@ -53,6 +84,11 @@ namespace LaboratonisDarbas
                     n++;
                 }
             }
+            else
+            {
+                Console.WriteLine("Failas \"{0}\" neegzistuoja!",path);
+            }
+            return grupe;
         }
         
     }
