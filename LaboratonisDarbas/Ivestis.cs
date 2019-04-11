@@ -93,31 +93,53 @@ namespace LaboratonisDarbas
         public static void GenerateRandomStudentList(int numberOfStudents, int ndSkaicius, string filePath)
         {
             Random random = new Random();
-            if (File.Exists(filePath))
-            {
-                File.Delete(filePath);
-            }
-            List<string> allLines = new List<string>();
+            string filePath15 = "C:\\temp\\studentaiiki5.txt";
+            string filePath610 = "C:\\temp\\studentanuo5.txt";
+            List<Studentas> studentai = new List<Studentas>();
+            Console.WriteLine("Files will be saved:");
+            Console.WriteLine(filePath15);
+            Console.WriteLine(filePath610);
+            List<string> allLines5 = new List<string>();
+            List<string> allLines10 = new List<string>();
             string header = string.Format("{0,-20} {1,-20}", "Vardas", "Pavarde");
             for (int g = 1; g <= ndSkaicius; g++)
             {
                 header += string.Format("{0,-20}", "ND"+g);
             }
             header += string.Format("{0,-20} \n", "Egzaminas");
-            allLines.Add(header);
+            header += string.Format("{0,-20:f2} \n", "Galutinis (Vid)");
+            allLines5.Add(header);
+            allLines10.Add(header);
             for (int i = 1; i <= numberOfStudents; i++)
             {
                 string vardas = "Vardas" + i;
                 string pavarde = "Pavarde" + i;
+                studentai.Add(new Studentas(vardas, pavarde));
                 string line = string.Format("{0,-20} {1,-20}", vardas, pavarde);
                 for (int j = 0; j < ndSkaicius; j++)
                 {
-                    line += string.Format("{0,-20}", random.Next(1, 11));
+                    int pazimys =  random.Next(1, 11);
+                    line += string.Format("{0,-20}", pazimys);
+                    studentai.Last().ivestiNamuDarboBala(pazimys);
                 }
-                line += string.Format("{0,-20} \n", random.Next(1, 11));
-                allLines.Add(line);
+                int egzas =  random.Next(1, 11);
+                line += string.Format("{0,-20} \n", egzas);
+                studentai.Last().ivestiEgzaminoBala(egzas);
+                line += string.Format("{0,-20} \n", studentai.Last().galutinisVertinimasVidurkis());
+                if (studentai.Last().galutinisVertinimasVidurkis() <= 5.0)
+                {
+                    studentai.Last().vargsiukas = true;
+                    allLines5.Add(line);
+                }
+                else
+                {
+                    studentai.Last().vargsiukas = false;
+                    allLines10.Add(line);
+                }
             }
-            File.AppendAllLines(filePath, allLines);
+
+            File.AppendAllLines(filePath15, allLines5);
+            File.AppendAllLines(filePath610, allLines10);
         }
     }
 }

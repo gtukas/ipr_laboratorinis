@@ -10,6 +10,7 @@ namespace LaboratonisDarbas
         private int egzaminas;
         public string vardas{ get; }
         public string pavarde { get; }
+        public bool vargsiukas {get; set;}
 
         public Studentas(string vardas, string pavarde)
         {
