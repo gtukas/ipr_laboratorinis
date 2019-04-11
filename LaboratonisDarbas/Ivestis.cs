@@ -90,15 +90,16 @@ namespace LaboratonisDarbas
             }
             return grupe;
         }
-        public static void GenerateRandomStudentList(int numberOfStudents, int ndSkaicius, string filePath)
+        public static void GenerateRandomStudentList(int numberOfStudents, int ndSkaicius)
         {
-            Random random = new Random();
             string filePath15 = "C:\\temp\\studentaiiki5.txt";
             string filePath610 = "C:\\temp\\studentanuo5.txt";
             List<Studentas> studentai = new List<Studentas>();
             Console.WriteLine("Files will be saved:");
             Console.WriteLine(filePath15);
             Console.WriteLine(filePath610);
+            Random random = new Random();
+
             List<string> allLines5 = new List<string>();
             List<string> allLines10 = new List<string>();
             string header = string.Format("{0,-20} {1,-20}", "Vardas", "Pavarde");
@@ -110,6 +111,10 @@ namespace LaboratonisDarbas
             header += string.Format("{0,-20:f2} \n", "Galutinis (Vid)");
             allLines5.Add(header);
             allLines10.Add(header);
+
+            var watch = new System.Diagnostics.Stopwatch();
+            watch.Start();
+
             for (int i = 1; i <= numberOfStudents; i++)
             {
                 string vardas = "Vardas" + i;
@@ -138,6 +143,8 @@ namespace LaboratonisDarbas
                 }
             }
 
+            watch.Stop();
+            Console.WriteLine("It took {0} miliseconds to complete this task.", watch.ElapsedMilliseconds);
             File.AppendAllLines(filePath15, allLines5);
             File.AppendAllLines(filePath610, allLines10);
         }

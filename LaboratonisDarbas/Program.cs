@@ -41,13 +41,11 @@ namespace LaboratonisDarbas
                         }
                     case "4":
                         {
-                            Console.WriteLine("Iveskite failo vieta (path):");
-                            var path = Console.ReadLine();
                             Console.WriteLine("Namu darbu uzduociu skaicius:");
                             int n = int.Parse(Console.ReadLine());
                             Console.WriteLine("Studentu skaicius:");
                             int st = int.Parse(Console.ReadLine());
-                            Ivestis.GenerateRandomStudentList(st,n,path);
+                            Ivestis.GenerateRandomStudentList(st,n);
                             break;
                         }
                     case "e":
