@@ -10,8 +10,14 @@ namespace LaboratonisDarbas
     class Program
     {
         private static List<Studentas> grupe = new List<Studentas>();
+        private static LinkedList<Studentas> grupeLinkedList = new LinkedList<Studentas>();
+        private static List<Studentas> vargsiukai = new List<Studentas>();
+        private static LinkedList<Studentas> vargsiukaiLinkedList = new LinkedList<Studentas>();
+        private static List<Studentas> kietiakai = new List<Studentas>();
+        private static LinkedList<Studentas> kietiakaiLinkedList = new LinkedList<Studentas>();
         private static bool testi = true;
-
+        private static System.Diagnostics.Stopwatch watch = new System.Diagnostics.Stopwatch();
+            
         static void Main(string[] args)
         {
             while (testi)
@@ -20,6 +26,8 @@ namespace LaboratonisDarbas
                 Console.WriteLine("Ivesti naujus studentu is failo? Spauskite 2.");
                 Console.WriteLine("Isvesti rezultatus? Spauskite 3.");
                 Console.WriteLine("Generate random list? Spauskite 4.");
+                Console.WriteLine("Surusiuoti studentus i vargsiukus ir kietiakus? Spauskite 5.");
+                Console.WriteLine("Surasyti vargsiukus ir kietiakus i failus? Spauskite 6.");
                 Console.WriteLine("Baigti darba? Spauskite e.");
                 string ans = Console.ReadLine();
                 switch (ans)
@@ -31,7 +39,15 @@ namespace LaboratonisDarbas
                         }
                     case "2":
                         {
+                            watch.Start();
                             grupe = Ivestis.NaujasStudentasIsFailo(grupe);
+                            watch.Stop();
+                            Console.WriteLine("It took me {0} miliseconds to read from file to List", watch.ElapsedMilliseconds);
+                            watch.Reset();
+                            watch.Start();
+                            grupeLinkedList = Ivestis.NaujasStudentasIsFailoLinkedList(grupeLinkedList);
+                            watch.Stop();
+                            Console.WriteLine("It took me {0} miliseconds to read from file to Linked List", watch.ElapsedMilliseconds);
                             break;
                         }
                     case "3":
@@ -46,6 +62,38 @@ namespace LaboratonisDarbas
                             Console.WriteLine("Studentu skaicius:");
                             int st = int.Parse(Console.ReadLine());
                             Ivestis.GenerateRandomStudentList(st,n);
+                            break;
+                        }
+                    case "5":
+                        {
+                            watch.Reset();
+                            watch.Start();
+                            var result = RusiuotiStudentus.surusiuotiStudentaiListas_budas2(grupe);
+                            watch.Stop();
+                            Console.WriteLine("It took me {0} miliseconds to sort List", watch.ElapsedMilliseconds);
+                            vargsiukai = result[1];
+                            kietiakai = result[0];
+                            
+                            watch.Reset();
+                            watch.Start();
+                            var result2 = RusiuotiStudentus.surusiuotiStudentaiLinkedListas_budas2(grupeLinkedList);
+                            watch.Stop();
+                            Console.WriteLine("It took me {0} miliseconds to sort Linked List", watch.ElapsedMilliseconds);
+                            vargsiukaiLinkedList = result2[1];
+                            kietiakaiLinkedList = result2[0];
+                            break;
+                        }
+                    case "6":
+                        {
+                            string fileName = "C:\\temp\\kietiakai.txt";
+                            Isvestis.IrasytiIFaila(kietiakai, fileName);
+                            fileName = "C:\\temp\\vargsiukai.txt";
+                            Isvestis.IrasytiIFaila(vargsiukai, fileName);
+                            fileName = "C:\\temp\\kietiakaiLinkedList.txt";
+                            Isvestis.IrasytiIFaila(kietiakai, fileName);
+                            fileName = "C:\\temp\\vargsiukaiLinkedList.txt";
+                            Isvestis.IrasytiIFaila(vargsiukaiLinkedList, fileName);
+                            Console.WriteLine("Failai isaugoti C:\\temp\\");
                             break;
                         }
                     case "e":

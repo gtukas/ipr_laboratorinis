@@ -67,14 +67,34 @@ namespace LaboratonisDarbas
         {
             Console.WriteLine("Iveskite failo vieta (path):");
             var path = Console.ReadLine();
+           /* StreamReader objStream = new StreamReader(path);
+            int lineCount = 1;
+            while (!objStream.EndOfStream)
+            {
+                var line = objStream.ReadLine();
+                if (lineCount == 1)
+                {
+                    var title = line.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                }
+                else
+                {
+                    line = line.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                    grupe.Add(new Studentas(eilute[0], eilute[1]));
+                    for (int i = 2; i < title.Length - 1; i++)
+                    {
+                        grupe.Last().ivestiNamuDarboBala(int.Parse(eilute[i]));
+                    }
+                    grupe.Last().ivestiEgzaminoBala(int.Parse(eilute[title.Length - 1]));
+                }
+            }*/
             if (File.Exists(path))
             {
                 var tekstas = File.ReadAllLines(path);
-                var title = tekstas[0].Split(' ');
+                var title = tekstas[0].Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
                 int n = 1;
                 while (n < tekstas.Length)
                 {
-                    var eilute = tekstas[n].Split(' ');
+                    var eilute = tekstas[n].Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
                     grupe.Add(new Studentas(eilute[0], eilute[1]));
                     for (int i = 2; i < title.Length - 1; i++)
                     {
@@ -90,6 +110,34 @@ namespace LaboratonisDarbas
             }
             return grupe;
         }
+        public static LinkedList<Studentas> NaujasStudentasIsFailoLinkedList(LinkedList<Studentas> grupe)
+        {
+            Console.WriteLine("Iveskite failo vieta (path):");
+            var path = Console.ReadLine();
+            if (File.Exists(path))
+            {
+                var tekstas = File.ReadAllLines(path);
+                var title = tekstas[0].Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                int n = 1;
+                while (n < tekstas.Length)
+                {
+                    var eilute = tekstas[n].Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                    grupe.AddLast(new Studentas(eilute[0], eilute[1]));
+                    for (int i = 2; i < title.Length - 1; i++)
+                    {
+                        grupe.Last().ivestiNamuDarboBala(int.Parse(eilute[i]));
+                    }
+                    grupe.Last().ivestiEgzaminoBala(int.Parse(eilute[title.Length - 1]));
+                    n++;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Failas \"{0}\" neegzistuoja!",path);
+            }
+            return grupe;
+        }
+
         public static void GenerateRandomStudentList(int numberOfStudents, int ndSkaicius)
         {
             string filePath15 = "C:\\temp\\studentaiiki5.txt";

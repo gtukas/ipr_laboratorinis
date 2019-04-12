@@ -47,6 +47,7 @@
     <Compile Include="Studentas.cs" />
     <Compile Include="Ivestis.cs" />
     <Compile Include="Isvestis.cs" />
+    <Compile Include="RusiuotiStudentus.cs"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
