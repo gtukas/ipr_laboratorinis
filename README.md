@@ -1,6 +1,17 @@
 # ipr_laboratorinis
 Integruotų programavimo aplinkų laboratoriniai darbai
 
+v0.1:
+Programos pagrindo kūrimas - studentų sąrašų generavimas, talpinimas atmintyje bei rezultatų skaičiavimo aprašymas.
+
+v0.2:
+Implementuojamas nuskaitymas iš failo.
+
+v0.3:
+Pridedami try-catch blokai, padedantys užtikrinti sklandų programos darbą.
+
+v0.4
+Studentų failų generavimas, pasirenkant skirtingą, vis didėjantį studentų skaičių. Galima pastebėti, jog studentų generavimui skiriamas laikas auga eksponentiškai.
 
 V0.5:
 Šioje versijoje lyginami List ir LinkedList sąrašų formavimo, apdorojimo bei spausdinimo ypatumai.
@@ -15,6 +26,15 @@ Abu sąrašai į failą išvedami gana greitai.
 Galima pastebėti, jog tiek LinkedList, tiek List sąrašai yra identiški.
 
 V1.0:
+Lyginu du sąrašų rūšiavimo būdus.
+Pirmasis -  Bendro studentai konteinerio ( List , LinkedList and Deque tipų) skaidymas (rūšiavimas) į du naujus to paties tipo konteinerius: "vargšiukų" ir "kietiakų". Šiuo būdu surūšiuoti studentus užtrunka:
+List tipo konteineryje - 19 milisekundžių.
+Linekd List tipo konteineryje - 24 milisekundes.
+Antrasis būdas - Bendro studentų konteinerio ( List , LinkedList and Deque ) skaidymas (rūšiavimas) panaudojant tik vieną naują konteinerį: "vargšiukai". Šio rūšiavimo rezultatus galima matyti v0.5 aprašyme.
+
+Antruoju būdu rūšiuoti studentus trunka gerokai ilgiau todėl, kad List<>.Remove() funkcija gana sudėtinga ir tai skaudžiai paveikia programos funkcionalumą.
+
+Darbas su LinkedList tipo konteineriais gerokai sulėtina programos darbą. Tai itin jaučiasi importuojant studentus iš failo - įrašų nuskaitymas į LinkedList sąrašą trunka net 22 minutes!
 
 Naudojimo instrukcija:
 1. Įdiegti programą
@@ -31,3 +51,5 @@ Naudojimo instrukcija:
 4. Naudotis programa :)
 
 Diegimo instrukcija:
+Instaliuoti nieko nereikia!
+Tiesiog parsisiųskite šią git repozitoriją, nueikite į "bin" aplanką ir du kartus greit spustelkite ant "ipr_laboratorinis.exe" failo. :)
