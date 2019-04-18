@@ -26,8 +26,10 @@ namespace LaboratonisDarbas
                 Console.WriteLine("Ivesti naujus studentu is failo? Spauskite 2.");
                 Console.WriteLine("Isvesti rezultatus? Spauskite 3.");
                 Console.WriteLine("Generate random list? Spauskite 4.");
-                Console.WriteLine("Surusiuoti studentus i vargsiukus ir kietiakus? Spauskite 5.");
-                Console.WriteLine("Surasyti vargsiukus ir kietiakus i failus? Spauskite 6.");
+                Console.WriteLine("!!!Naujas rusiavimo pasirinkimas isvalys buvusio surusiavimo rezultatus!!!");
+                Console.WriteLine("Surusiuoti studentus i vargsiukus ir kietiakus 2 budas? Spauskite 5.");
+                Console.WriteLine("Surusiuoti studentus i vargsiukus ir kietiakus 1 budas? Spauskite 5.");
+                Console.WriteLine("Surasyti vargsiukus ir kietiakus i failus? Spauskite 7.");
                 Console.WriteLine("Baigti darba? Spauskite e.");
                 string ans = Console.ReadLine();
                 switch (ans)
@@ -39,11 +41,13 @@ namespace LaboratonisDarbas
                         }
                     case "2":
                         {
+                            Console.WriteLine("List studentu sarasas:");
                             watch.Start();
                             grupe = Ivestis.NaujasStudentasIsFailo(grupe);
                             watch.Stop();
                             Console.WriteLine("It took me {0} miliseconds to read from file to List", watch.ElapsedMilliseconds);
                             watch.Reset();
+                            Console.WriteLine("Linked List studentu sarasas:");
                             watch.Start();
                             grupeLinkedList = Ivestis.NaujasStudentasIsFailoLinkedList(grupeLinkedList);
                             watch.Stop();
@@ -66,6 +70,11 @@ namespace LaboratonisDarbas
                         }
                     case "5":
                         {
+                            vargsiukai.Clear();
+                            vargsiukaiLinkedList.Clear();
+                            kietiakai.Clear();
+                            kietiakaiLinkedList.Clear();
+                            Console.WriteLine("Studentu rusiavimas 2 budas.");
                             watch.Reset();
                             watch.Start();
                             var result = RusiuotiStudentus.surusiuotiStudentaiListas_budas2(grupe);
@@ -83,7 +92,31 @@ namespace LaboratonisDarbas
                             kietiakaiLinkedList = result2[0];
                             break;
                         }
-                    case "6":
+                      case "6":
+                        {
+                            vargsiukai.Clear();
+                            vargsiukaiLinkedList.Clear();
+                            kietiakai.Clear();
+                            kietiakaiLinkedList.Clear();
+                            Console.WriteLine("Studentu rusiavimas 1 budas:");
+                            watch.Reset();
+                            watch.Start();
+                            var result = RusiuotiStudentus.surusiuotiStudentaiListas_budas1(grupe);
+                            watch.Stop();
+                            Console.WriteLine("It took me {0} miliseconds to sort List", watch.ElapsedMilliseconds);
+                            vargsiukai = result[1];
+                            kietiakai = result[0];
+                            
+                            watch.Reset();
+                            watch.Start();
+                            var result2 = RusiuotiStudentus.surusiuotiStudentaiLinkedListas_budas1(grupeLinkedList);
+                            watch.Stop();
+                            Console.WriteLine("It took me {0} miliseconds to sort Linked List", watch.ElapsedMilliseconds);
+                            vargsiukaiLinkedList = result2[1];
+                            kietiakaiLinkedList = result2[0];
+                            break;
+                        }
+                    case "7":
                         {
                             string fileName = "C:\\temp\\kietiakai.txt";
                             Isvestis.IrasytiIFaila(kietiakai, fileName);

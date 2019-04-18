@@ -25,10 +25,11 @@ namespace LaboratonisDarbas
             result.Add(maziauNei5);
             return result;
         }
+
         public static List<LinkedList<Studentas>> surusiuotiStudentaiLinkedListas_budas2(LinkedList<Studentas> grupe)
         {
             LinkedList<Studentas> maziauNei5 = new LinkedList<Studentas>();
-            foreach (var stud in grupe)
+            foreach (var stud in grupe.ToList())
             {
                 if (stud.galutinisVertinimasVidurkis() <= 5.0)
                 {
@@ -42,21 +43,47 @@ namespace LaboratonisDarbas
             return result;
         }
 
-        public static List<List<Studentas>> surusiuotiStudentaiDeque_budas2(List<Studentas> grupe)
+        public static List<List<Studentas>> surusiuotiStudentaiListas_budas1(List<Studentas> grupe)
         {
             List<Studentas> maziauNei5 = new List<Studentas>();
-            foreach (var stud in grupe)
+            List<Studentas> daugiauNei5 = new List<Studentas>();
+            foreach (var stud in grupe.ToList())
             {
                 if (stud.galutinisVertinimasVidurkis() <= 5.0)
                 {
                     maziauNei5.Add(stud);
-                    grupe.Remove(stud);
+                }
+                else
+                {
+                    daugiauNei5.Add(stud);
                 }
             }
             List<List<Studentas>> result = new List<List<Studentas>>();
-            result.Add(grupe);
+            result.Add(daugiauNei5);
             result.Add(maziauNei5);
             return result;
         }
+
+        public static List<LinkedList<Studentas>> surusiuotiStudentaiLinkedListas_budas1(LinkedList<Studentas> grupe)
+        {
+            LinkedList<Studentas> maziauNei5 = new LinkedList<Studentas>();
+            LinkedList<Studentas> daugiauNei5 = new LinkedList<Studentas>();
+            foreach (var stud in grupe.ToList())
+            {
+                if (stud.galutinisVertinimasVidurkis() <= 5.0)
+                {
+                    maziauNei5.AddLast(stud);
+                }
+                else
+                {
+                    daugiauNei5.AddLast(stud);
+                }
+            }
+            List<LinkedList<Studentas>> result = new List<LinkedList<Studentas>>();
+            result.Add(daugiauNei5);
+            result.Add(maziauNei5);
+            return result;
+        }
+
     }
 }
