@@ -37,19 +37,19 @@ Antruoju būdu rūšiuoti studentus trunka gerokai ilgiau todėl, kad List<>.Rem
 Darbas su LinkedList tipo konteineriais gerokai sulėtina programos darbą. Tai itin jaučiasi importuojant studentus iš failo - įrašų nuskaitymas į LinkedList sąrašą trunka net 22 minutes!
 
 # Naudojimo instrukcija:
-1. Įdiegti programą
-2. Paleisti programą
-3. Pasirinkti norimą veiksmą
-      Ivesti nauja studenta? Spauskite 1.
-      Ivesti naujus studentu is failo? Spauskite 2.
-      Isvesti rezultatus? Spauskite 3.
-      Generate random list? Spauskite 4.
-      Surusiuoti studentus i vargsiukus ir kietiakus? Spauskite 5.
-      Surasyti vargsiukus ir kietiakus i failus? Spauskite 6.
-      Baigti darba? Spauskite e.
+1. Įdiegti programą\
+2. Paleisti programą\
+3. Pasirinkti norimą veiksmą\
+      Ivesti nauja studenta? Spauskite 1.\
+      Ivesti naujus studentu is failo? Spauskite 2.\
+      Isvesti rezultatus? Spauskite 3.\
+      Generate random list? Spauskite 4.\
+      Surusiuoti studentus i vargsiukus ir kietiakus? Spauskite 5.\
+      Surasyti vargsiukus ir kietiakus i failus? Spauskite 6.\
+      Baigti darba? Spauskite e.\
       
 4. Naudotis programa :)
 
 # Diegimo instrukcija:
-Instaliuoti nieko nereikia!
+Instaliuoti nieko nereikia!\
 Tiesiog parsisiųskite "LaboratorinisDarbas" git repozitoriją, nueikite į "bin/debug" aplanką ir du kartus greit spustelkite ant "ipr_laboratorinis.exe" failo. :)
