@@ -17,22 +17,22 @@ Studentų failų generavimas, pasirenkant skirtingą, vis didėjantį studentų 
 Šioje versijoje lyginami List ir LinkedList sąrašų formavimo, apdorojimo bei spausdinimo ypatumai.\
 Užduoties atlikimo laiką matuoju naudodama System.Diagnostics.Stopwatch klasę.\
 Iš failo, su 100000 eilučių, į List sąrašą įrašai įrašomi per 17532 milisekundžių.\
-Iš failo, su 100000 eilučių, į Linked List sąrašą įrašai įrašomi per 1350953 milisekundžių.\
+Iš failo, su 100000 eilučių, į Linked List sąrašą įrašai įrašomi per 1350953 milisekundžių.
 
 List tipo sąrašas surūšiuojamas į du sąrašus per: 27241\
-LinkedList tai padaro per: 48992\
+LinkedList tai padaro per: 48992
 
 Abu sąrašai į failą išvedami gana greitai.\
-Galima pastebėti, jog tiek LinkedList, tiek List sąrašai yra identiški.\
+Galima pastebėti, jog tiek LinkedList, tiek List sąrašai yra identiški.
 
 # V1.0:
 Lyginu du sąrašų rūšiavimo būdus.\
 Pirmasis -  Bendro studentai konteinerio ( List , LinkedList and Deque tipų) skaidymas (rūšiavimas) į du naujus to paties tipo konteinerius: "vargšiukų" ir "kietiakų". Šiuo būdu surūšiuoti studentus užtrunka:\
 List tipo konteineryje - 19 milisekundžių.\
 Linekd List tipo konteineryje - 24 milisekundes.\
-Antrasis būdas - Bendro studentų konteinerio ( List , LinkedList and Deque ) skaidymas (rūšiavimas) panaudojant tik vieną naują konteinerį: "vargšiukai". Šio rūšiavimo rezultatus galima matyti v0.5 aprašyme.\
+Antrasis būdas - Bendro studentų konteinerio ( List , LinkedList and Deque ) skaidymas (rūšiavimas) panaudojant tik vieną naują konteinerį: "vargšiukai". Šio rūšiavimo rezultatus galima matyti v0.5 aprašyme.
 
-Antruoju būdu rūšiuoti studentus trunka gerokai ilgiau todėl, kad List<>.Remove() funkcija gana sudėtinga ir tai skaudžiai paveikia programos funkcionalumą.\
+Antruoju būdu rūšiuoti studentus trunka gerokai ilgiau todėl, kad List<>.Remove() funkcija gana sudėtinga ir tai skaudžiai paveikia programos funkcionalumą.
 
 Darbas su LinkedList tipo konteineriais gerokai sulėtina programos darbą. Tai itin jaučiasi importuojant studentus iš failo - įrašų nuskaitymas į LinkedList sąrašą trunka net 22 minutes!
 
